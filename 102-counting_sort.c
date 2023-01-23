@@ -25,6 +25,7 @@ int get_max(int *array, int size)
  * @size: The size of the array.
  * Description: Prints the counting array after setting it up.
  */
+
 void counting_sort(int *array, size_t size)
 {
 	int *count, *sorted, max, i;
@@ -35,14 +36,13 @@ void counting_sort(int *array, size_t size)
 	sorted = malloc(sizeof(int) * size);
 	if (sorted == NULL)
 		return;
-
 	max = get_max(array, size);
 	count = malloc(sizeof(int) * (max + 1));
 	if (count == NULL)
 {
 	free(sorted);
-	return;
 }
+
 	for (i = 0; i < (max + 1); i++)
 		count[i] = 0;
 	for (i = 0; i < (int)size; i++)
@@ -58,6 +58,7 @@ void counting_sort(int *array, size_t size)
 }
 	for (i = 0; i < (int)size; i++)
 		array[i] = sorted[i];
+
 	free(sorted);
 	free(count);
 }
